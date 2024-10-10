@@ -32,13 +32,16 @@ arrowRight.addEventListener('click', () => {
     alert('Flèche droite cliquée');
 });
 
+// Nombre total de diapositives
+const totalSlides = slides.length;
+
 // Sélection des éléments de flèches et de la zone des points
 const dotsContainer = document.querySelector('.dots');
 let currentSlide = 0; // Index de la diapositive actuelle
 
 // Ajout d'un event listener sur la flèche droite
 arrowRight.addEventListener('click', () => {
-    currentSlide++; // On passe à la diapositive suivante
+    currentSlide = (currentSlide + 1) % totalSlides; // On passe à la diapositive suivante, et revient à 0 si on dépasse le total
     console.log('Diapositive actuelle :', currentSlide);
 });
 
