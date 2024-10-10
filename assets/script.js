@@ -36,6 +36,12 @@ arrowRight.addEventListener('click', () => {
 const dotsContainer = document.querySelector('.dots');
 let currentSlide = 0; // Index de la diapositive actuelle
 
+// Ajout d'un event listener sur la flèche droite
+arrowRight.addEventListener('click', () => {
+    currentSlide++; // On passe à la diapositive suivante
+    console.log('Diapositive actuelle :', currentSlide);
+});
+
 // Fonction pour créer les bullet points
 function createDots() {
     slides.forEach((_, index) => {
