@@ -31,3 +31,23 @@ arrowRight.addEventListener('click', () => {
     console.log('Clic sur la flèche droite');
     alert('Flèche droite cliquée');
 });
+
+// Sélection des éléments de flèches et de la zone des points
+const dotsContainer = document.querySelector('.dots');
+let currentSlide = 0; // Index de la diapositive actuelle
+
+// Fonction pour créer les bullet points
+function createDots() {
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        // Ajouter la classe 'dot_selected' au premier point
+        if (index === currentSlide) {
+            dot.classList.add('dot_selected');
+        }
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Appel de la fonction pour créer les bullet points
+createDots();

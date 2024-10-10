@@ -317,3 +317,22 @@ footer div {
 #banner .arrow:hover {
     opacity: 1;
 }
+
+/* Gestion des points du carrousel */
+.dots {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+}
+.dot {
+    margin-inline: 5px;
+    width: 13px;
+    height: 13px;
+    background-color: #ffffff00;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.dot_selected {
+    background-color: #fff;
+}
