@@ -21,6 +21,10 @@ const slides = [
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 
+// Sélection des éléments de l'image et du texte
+const bannerImage = document.querySelector('.banner-img');
+const bannerTagline = document.querySelector('#banner p');
+
 // Ajout des event listeners sur les flèches
 arrowLeft.addEventListener('click', () => {
     console.log('Clic sur la flèche gauche');
@@ -42,6 +46,8 @@ let currentSlide = 0; // Index de la diapositive actuelle
 // Ajout d'un event listener sur la flèche droite
 arrowRight.addEventListener('click', () => {
     currentSlide = (currentSlide + 1) % totalSlides; // On passe à la diapositive suivante, et revient à 0 si on dépasse le total
+    bannerImage.src = `./assets/images/slideshow/${slides[currentSlide].image}`; // Mise à jour de l'image
+    bannerTagline.innerHTML = slides[currentSlide].tagLine; // Mise à jour de la tagLine
     console.log('Diapositive actuelle :', currentSlide);
 });
 
