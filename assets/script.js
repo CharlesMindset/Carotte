@@ -25,15 +25,9 @@ const arrowRight = document.querySelector('.arrow_right');
 const bannerImage = document.querySelector('.banner-img');
 const bannerTagline = document.querySelector('#banner p');
 
-// Ajout des event listeners sur les flèches
 arrowLeft.addEventListener('click', () => {
-    console.log('Clic sur la flèche gauche');
-    alert('Flèche gauche cliquée');
-});
-
-arrowRight.addEventListener('click', () => {
-    console.log('Clic sur la flèche droite');
-    alert('Flèche droite cliquée');
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlide();
 });
 
 // Nombre total de diapositives
@@ -49,10 +43,12 @@ arrowRight.addEventListener('click', () => {
     bannerImage.src = `./assets/images/slideshow/${slides[currentSlide].image}`; // Mise à jour de l'image
     bannerTagline.innerHTML = slides[currentSlide].tagLine; // Mise à jour de la tagLine
     console.log('Diapositive actuelle :', currentSlide);
+	updateSlide();
 });
 
 // Fonction pour créer les bullet points
 function createDots() {
+	dotsContainer.innerHTML = ''; // On vide les anciens dots pour éviter les doublons
     slides.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
@@ -64,5 +60,18 @@ function createDots() {
     });
 }
 
+function updateSlide() {
+    // Mise à jour de l'image
+    bannerImage.src = `./assets/images/slideshow/${slides[currentSlide].image}`;
+    
+    // Mise à jour de la tagLine
+    bannerTagline.innerHTML = slides[currentSlide].tagLine;
+
+    // Mise à jour des dots
+    createDots();
+}
+
+
 // Appel de la fonction pour créer les bullet points
 createDots();
+updateSlide();
